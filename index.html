@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>T-Chat socket.io</title>
-    <script src="js/index.js"></script>
+    <!-- it expose the standalone build by the server to the client which we can include in the client which helps to connect the server and client  -->
+    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <script defer src="js/client.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
