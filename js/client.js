@@ -3,7 +3,7 @@ const socket = io("http://localhost:8000");
 const form = document.getElementById("sendContainer");
 const messageInp = document.getElementById("messageInp");
 const messageContainer = document.getElementById("container");
-
+const audio = new Audio("click.wav");
 const append = (message, position) => {
   const messageEle = document.createElement("div");
   messageEle.innerText = message;
@@ -11,6 +11,10 @@ const append = (message, position) => {
   messageEle.classList.add(position);
 
   messageContainer.append(messageEle);
+
+  if (position == "left") {
+    audio.play();
+  }
 };
 
 form.addEventListener("submit", (e) => {
@@ -31,4 +35,8 @@ socket.on("user-joined", (name) => {
 
 socket.on("receive", (data) => {
   append(`${data.name}: ${data.message}`, "left");
+});
+
+socket.on("left", (name) => {
+  append(`${name}: left the chat`, "left");
 });

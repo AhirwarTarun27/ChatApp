@@ -16,4 +16,10 @@ io.on("connection", (socket) => {
     //it broadcast to all the people and receive the messagex
     socket.broadcast.emit("receive", { message, name: users[socket.id] });
   });
+
+  socket.on("disconnect", (message) => {
+    //it broadcast to all the people and receive the message for left the chat room
+    socket.broadcast.emit("left", users[socket.id]);
+    delete users[socket.id];
+  });
 });
