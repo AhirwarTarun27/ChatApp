@@ -12,6 +12,7 @@ body{
   height: 60vh;
   overflow-y: auto;
   border: 2px solid black;
+  border-radius: 20px;
   margin: auto;
 }
 
@@ -52,4 +53,8 @@ body{
   border: 2px solid black;
   border-radius: 8px;
   font-weight: 800;
+}
+
+h1{
+  text-align: center;
 }
